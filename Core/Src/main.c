@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include "fonts.h"
 #include "ssd1306.h"
+#include "ssd1306_tests.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -102,8 +103,8 @@ int main(void)
   MX_TIM4_Init();
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
-  SSD1306_Init();
-    char snum[5];
+  //SSD1306_Init();
+    /*char snum[5];
 
     SSD1306_DrawLine(0, 5, 10, 10, 1);
     HAL_Delay(3000);
@@ -122,7 +123,7 @@ int main(void)
     SSD1306_Stopscroll();
     SSD1306_Clear();
     SSD1306_GotoXY (35,0);
-    SSD1306_Puts ("SCORE", &Font_11x18, 1);
+    SSD1306_Puts ("SCORE", &Font_11x18, 1);*/
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -136,7 +137,9 @@ int main(void)
 	  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_12);
 	  HAL_Delay(200);
 
-	  for ( int x = 1; x <= 10000 ; x++ )
+	  ssd1306_TestAll();
+
+	  /*for ( int x = 1; x <= 10000 ; x++ )
 	  	{
 	  		itoa(x, snum, 10);
 	  		SSD1306_GotoXY (0, 30);
@@ -157,7 +160,7 @@ int main(void)
 	  		SSD1306_Puts (snum, &Font_16x26, 1);
 	  		SSD1306_UpdateScreen();
 	  		HAL_Delay (500);
-	  	    }
+	  	    }*/
   }
   /* USER CODE END 3 */
 }
